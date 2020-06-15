@@ -28,7 +28,8 @@ public class PlayingFacade
 	}
 	
 	/**
-	 * 走棋返回值为 获胜一方的棋子颜色，返回-1则未分出胜负
+	 * 走棋
+	 * 返回值为 获胜一方的棋子颜色，返回-1则未分出胜负
 	 * @param playerColor
 	 * @param game
 	 * @param fromX
@@ -58,6 +59,7 @@ public class PlayingFacade
 		}
 		else
 		{
+			game.nextColorTurn();
 			return -1;
 		}
 	}

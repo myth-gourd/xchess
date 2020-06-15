@@ -32,6 +32,10 @@ public class Game
 		return board;
 	}
 	
+	
+	/**
+	 * 轮换另一个玩家走棋
+	 */
 	public void nextColorTurn()
 	{
 		if(currentColorTurn == PieceColorConsts.RED)
