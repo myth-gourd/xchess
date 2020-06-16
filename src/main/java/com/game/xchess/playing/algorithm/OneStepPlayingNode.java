@@ -1,16 +1,16 @@
-package com.game.xhcess.playing.algorithm;
+package com.game.xchess.playing.algorithm;
 
 import com.game.xchess.exception.GameException;
+import com.game.xchess.playing.PlayingChecker;
+import com.game.xchess.playing.PlayingUtil;
+import com.game.xchess.playing.algorithm.command.AbstractPlayingCommandNode;
+import com.game.xchess.playing.algorithm.command.ExchangingCmd;
+import com.game.xchess.playing.algorithm.command.MovingCmd;
+import com.game.xchess.playing.algorithm.command.OtherEatingCmd;
+import com.game.xchess.playing.algorithm.command.ShuaiEatingCmd;
+import com.game.xchess.playing.algorithm.command.ZuEatingCmd;
 import com.game.xchess.pojo.bo.Cell;
 import com.game.xchess.pojo.bo.Game;
-import com.game.xhcess.playing.PlayingChecker;
-import com.game.xhcess.playing.PlayingUtil;
-import com.game.xhcess.playing.algorithm.command.AbstractPlayingCommandNode;
-import com.game.xhcess.playing.algorithm.command.ExchangingCmd;
-import com.game.xhcess.playing.algorithm.command.MovingCmd;
-import com.game.xhcess.playing.algorithm.command.OtherEatingCmd;
-import com.game.xhcess.playing.algorithm.command.ShuaiEatingCmd;
-import com.game.xhcess.playing.algorithm.command.ZuEatingCmd;
 
 /**
  * 走一步棋
@@ -47,6 +47,7 @@ public class OneStepPlayingNode extends AbstractPlayingNode
 	public void handle(final int playerColor, final Game game, final Cell fromCell, final Cell toCell) throws GameException {
 		PlayingChecker.checkCellIsUp(fromCell);
 		PlayingChecker.checkCellIsUp(toCell);
+		PlayingChecker.checkFromCellIsSelf(playerColor, fromCell);
 		PlayingChecker.checkToCellPieceIsOfOtherPlayer(playerColor, toCell);
 		CHAIN.exce(fromCell, toCell);
 	}

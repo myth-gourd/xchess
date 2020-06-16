@@ -1,4 +1,4 @@
-package com.game.xhcess.playing;
+package com.game.xchess.playing;
 
 import com.game.xchess.consts.PieceColorConsts;
 import com.game.xchess.errors.GameErrors;
@@ -110,6 +110,20 @@ public class PlayingChecker {
 		}
 	}
 
+	/**
+	 * 检查单元格的妻子是否是自己的棋子
+	 * @param playerColor
+	 * @param cell
+	 * @throws GameException 
+	 */
+	public static void checkFromCellIsSelf(final int playerColor, final Cell cell) throws GameException
+	{
+		Piece piece = cell.getPiece();
+		if (piece != null && cell.getIsFrontUp() && piece.getColor() != playerColor) {
+			GameErrors.OnlyCanPlayingSelfPiece.throwGameException();
+		}
+	}
+	
 	/**
 	 * 检查单元格的棋子是否是对方的棋子
 	 * 

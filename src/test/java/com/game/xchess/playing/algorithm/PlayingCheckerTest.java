@@ -6,8 +6,8 @@ import org.junit.Test;
 import com.game.xchess.consts.PieceColorConsts;
 import com.game.xchess.errors.GameErrors;
 import com.game.xchess.exception.GameException;
+import com.game.xchess.playing.PlayingChecker;
 import com.game.xchess.pojo.bo.Game;
-import com.game.xhcess.playing.PlayingChecker;
 
 public class PlayingCheckerTest 
 {

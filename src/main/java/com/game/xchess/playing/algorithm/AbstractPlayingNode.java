@@ -1,4 +1,4 @@
-package com.game.xhcess.playing.algorithm;
+package com.game.xchess.playing.algorithm;
 
 import com.game.xchess.errors.GameErrors;
 import com.game.xchess.exception.GameException;

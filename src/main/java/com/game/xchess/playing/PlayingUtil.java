@@ -1,4 +1,4 @@
-package com.game.xhcess.playing;
+package com.game.xchess.playing;
 
 import com.game.xchess.consts.PieceValueConsts;
 import com.game.xchess.errors.GameErrors;
@@ -85,7 +85,9 @@ public class PlayingUtil {
 	public static int hasPieceNumBetween(final Board board, final int fromX, final int fromY, final int toX, final int toY) {
 		if (fromX == toX) {
 			int num = 0;
-			for (int y = fromY + 1; y < toY; y++) {
+			int min = Math.min(fromY, toY);
+			int max = Math.max(fromY, toY);
+			for (int y = min + 1; y < max; y++) {
 				if (board.getCells()[fromX][y].hasPiece()) {
 					num++;
 				}
@@ -94,7 +96,9 @@ public class PlayingUtil {
 		}
 		if (fromY == toY) {
 			int num = 0;
-			for (int x = fromX + 1; x < toX; x++) {
+			int min = Math.min(fromX, toX);
+			int max = Math.max(fromX, toX);
+			for (int x = min + 1; x < max; x++) {
 				if (board.getCells()[x][fromY].hasPiece()) {
 					num++;
 				}
@@ -148,6 +152,7 @@ public class PlayingUtil {
 	 */
 	private static void doEating(final Cell fromCell, final Cell toCell) {
 		move(fromCell, toCell);
+		toCell.setIsFrontUp(true);
 	}
 	
 	/**
@@ -169,6 +174,7 @@ public class PlayingUtil {
 		{
 			PlayingChecker.checkToCellPieceIsOfOtherPlayer(playerColor, toCell);
 		}
+		
 		PlayingUtil.doEating(fromCell, toCell);
 	}
 	

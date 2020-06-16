@@ -6,10 +6,10 @@ import org.junit.Test;
 import com.game.xchess.consts.PieceColorConsts;
 import com.game.xchess.errors.GameErrors;
 import com.game.xchess.exception.GameException;
+import com.game.xchess.playing.PlayingFacade;
 import com.game.xchess.pojo.bo.Game;
 import com.game.xchess.pojo.bo.Piece;
 import com.game.xchess.pojo.bo.StandardPieces;
-import com.game.xhcess.playing.PlayingFacade;
 
 /**
  * 走棋接口测试

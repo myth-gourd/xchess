@@ -1,13 +1,13 @@
-package com.game.xhcess.playing;
+package com.game.xchess.playing;
 
 import com.game.xchess.consts.PieceValueConsts;
 import com.game.xchess.exception.GameException;
+import com.game.xchess.playing.algorithm.AbstractPlayingNode;
+import com.game.xchess.playing.algorithm.MoreStepsPlayingNode;
+import com.game.xchess.playing.algorithm.NoStepPlayingNode;
+import com.game.xchess.playing.algorithm.OneStepPlayingNode;
 import com.game.xchess.pojo.bo.Game;
 import com.game.xchess.pojo.bo.Piece;
-import com.game.xhcess.playing.algorithm.AbstractPlayingNode;
-import com.game.xhcess.playing.algorithm.MoreStepsPlayingNode;
-import com.game.xhcess.playing.algorithm.NoStepPlayingNode;
-import com.game.xhcess.playing.algorithm.OneStepPlayingNode;
 
 /**
  * 走棋门面
@@ -53,14 +53,14 @@ public class PlayingFacade
 		
 		CHAIN.play(playerColor, game, fromX, fromY, toX, toY);
 		//如果吃的或者兑的是帅，则游戏结束,输棋的是toPiece颜色的一方
-		if (toPiece != null && toPiece.getValue() == PieceValueConsts.SHUAI)
+		if (!PlayingUtil.isSameCell(fromX, fromY, toX, toY))
 		{
-			return (toPiece.getColor() + 1)%2;
+			if (toPiece != null && toPiece.getValue() == PieceValueConsts.SHUAI)
+			{
+				return (toPiece.getColor() + 1)%2;
+			}
 		}
-		else
-		{
-			game.nextColorTurn();
-			return -1;
-		}
+		game.nextColorTurn();
+		return -1;
 	}
 }

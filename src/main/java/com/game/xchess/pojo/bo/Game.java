@@ -27,6 +27,11 @@ public class Game
 		return currentColorTurn;
 	}
 	
+	public void setCurrentColorTurn(int colorTurn)
+	{
+		this.currentColorTurn = colorTurn;
+	}
+	
 	public Board getBoard()
 	{
 		return board;

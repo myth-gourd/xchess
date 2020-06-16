@@ -1,9 +1,9 @@
-package com.game.xhcess.playing.algorithm;
+package com.game.xchess.playing.algorithm;
 
 import com.game.xchess.exception.GameException;
+import com.game.xchess.playing.PlayingUtil;
 import com.game.xchess.pojo.bo.Cell;
 import com.game.xchess.pojo.bo.Game;
-import com.game.xhcess.playing.PlayingUtil;
 
 /**
  * 没走棋，即同一个单元格走棋（翻棋）
